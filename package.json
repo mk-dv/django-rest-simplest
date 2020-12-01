@@ -1,0 +1,19 @@
+{
+  "name": "django_rest_simplest",
+  "version": "0.0.1",
+  "description": "Example of simplest rest service written on django",
+  "dependencies": {},
+  "devDependencies": {
+    "snyk": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mk-dv/django_rest_simpest.git/"
+  },
+  "keywords": [
+    "django",
+    "rest"
+  ],
+  "author": "mk-dv",
+  "license": "MIT"
+}

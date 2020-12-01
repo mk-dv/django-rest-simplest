@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=2.2"
+dynaconf = "*"
+djangorestframework = "*"
+
+[dev-packages]
+django-extensions = "*"
+flake8-django = "*"
+pylint-django = "*"
+pytest = "*"
+pylava = "*"
+pylint-runner = "*"
+
+[requires]
+python_version = "3.8"
