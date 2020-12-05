@@ -8,6 +8,9 @@ Django Rest Simplest
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
 
+.. image:: https://img.shields.io/github/license/Naereen/StrapDown.js.svg
+   :target: https://github.com/Naereen/StrapDown.js/blob/master/LICENSE
+
 An example of a simple rest service written on Django.
 ------------------------------------------------------
 
@@ -64,11 +67,11 @@ Pylava_ is a wrapper over many linters includes pycodestyle, pydocstyle, pyflake
 
     $ pylava -l pycodestyle,pydocstyle,pyflakes,pylint
 
-Or use single linter:
+Or use a single linter. For example:
 
 ::
 
-    $ flake8 <path_to_check>
+    $ pyflakes
 
 ::
 
@@ -78,12 +81,13 @@ Or use single linter:
 Getting started
 ---------------
 
-Create a database
-^^^^^^^^^^^^^^^^^
+Clone this repo and change the current directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    $ python manage.py migrate
+    git clone <current_repository_link>
+    git cd <repository_dir>
 
 Install dependecies
 ^^^^^^^^^^^^^^^^^^^
@@ -91,6 +95,110 @@ Install dependecies
 ::
 
     $ pipenv install
+
+Set the secrets
+^^^^^^^^^^^^^^^
+
+* Generate a secret key:
+
+Run the python shell
+
+* Windows
+
+::
+
+$ python
+
+* Linux
+
+::
+
+$ python3
+
+- Generate key
+
+::
+
+    >> from django.core.management.utils import get_random_secret_key
+    >> get_random_secret_key
+    >> <your-brand-new-secret-key!>
+
+* Create a secrets file
+
+- Copy .secrets.toml.example to .secrets.toml
+
++ Windows
+
+::
+
+    $ cp .\.secrets.toml.example -Destination .\.secrets.toml
+
++ Linux
+
+::
+
+    $ cp .secrets.toml.example .secrets.toml
+
+- Change `SECRET_KEY = 'your_secret_key'` with the generated key
+
+* Or set it in the environment variables
+
+Linux::
+
+        $ > export DJANGO_REST_SECRET_KEY=your-brand-new-secret-key
+
+Windows
+
+- Cmd
+
+::
+
+        $ > set DJANGO_REST_SECRET_KEY=your-brand-new-secret-key
+
+- Powershell
+
+::
+
+        $ > $env:DJANGO_REST_SECRET_KEY = "your-brand-new-secret-key"
+
+Select configuration
+^^^^^^^^^^^^^^^^^^^^
+
+Linux::
+
+        $ > export DJANGO_REST_ENV=production
+
+Windows
+
+- Cmd
+
+::
+
+        $ > set DJANGO_REST_ENV=production
+
+- Powershell
+
+::
+
+        $ > $env:DJANGO_REST_ENV = "production"
+
+Create a database
+^^^^^^^^^^^^^^^^^
+
+Windows
+
+::
+
+    $ py manage.py migrate
+
+Linux
+
+::
+
+    $ python3 manage.py migrate
+
+
+
 
 
 Setting Up Your Users
@@ -114,26 +222,7 @@ Linux:
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
-Select configuration
-^^^^^^^^^^^^^^^^^^^^
 
-Linux::
-
-        $ > export DJANGO_REST_ENV=production
-
-Windows
-
-- Cmd
-
-::
-
-        $ > set DJANGO_REST_ENV=production
-
-- Powershell
-
-::
-
-        $ > $env:DJANGO_REST_ENV = "production"
 
 Run server
 ^^^^^^^^^^
@@ -149,5 +238,3 @@ Linux
 ::
 
         $ python3 manage.py runserver
-
-:License: MIT
